@@ -10,15 +10,27 @@
     margin: 0;
     padding: 0;
 }
+body {
+    font-size: 20px;
+    font-family: 'Source Code Pro', monospace;
+}
 td, th {
     border-collapse: collapse;
-    border: solid 1px black;
     padding: 5px;
 }
+tbody tr {
+    border-top: solid 1px #ccc;
+}
+tbody tr:first-child {
+    border-top-color: #333;
+}
 table#summary {
+    margin: 20px auto;
     border-collapse: collapse;
-    border: dashed 2px #333;
-
+    text-align: center;
+}
+.chart_cell {
+    padding: 0;
 }
 .chart {
     width: 100px;
@@ -50,7 +62,7 @@ table#summary {
                     <td>{{ team.name }}</td>
                     <td>{{ team.play_time }}</td>
                     <td>{{ team.score }}</td>
-                    <td>
+                    <td class="chart_cell">
                         <!-- From scoreboard (modified for multiple charts) -->
                         <div class="chart" id="chart_div_{{ team.number }}"></div>
                     </td>
