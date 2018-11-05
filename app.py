@@ -21,12 +21,14 @@ def hello_world():
         table_data = soup.find_all('tr')[1]
         play_time = table_data.select('td')[6].text
         score = table_data.select('td')[8].text
+        warnings = table_data.select('td')[7].text
         chart_script = soup.find_all('script')[-1]
         content.append({
             'number': number,
             'name': name,
             'play_time': play_time,
             'score': score,
+            'warnings': warnings,
             'main_table': main_table,
             'chart_script': str(chart_script).replace('chart_div', 'chart_div_' + number),
         })
