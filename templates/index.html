@@ -8,6 +8,7 @@
     <body>
         {% for team in teams %}
         <h2>{{ team.name }} - {{ team.number }}</h2>
+        {{ team.main_table|safe }}
         {% endfor %}
     </body>
 </html>

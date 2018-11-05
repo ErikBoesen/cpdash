@@ -16,6 +16,8 @@ def hello_world():
     for number, name in teams.items():
         page = requests.get(CP_HOST + '/team.php?team=' + number).content
         soup = BeautifulSoup(page, 'html.parser')
+        # TODO: This is really clumsy; it would be better to parse the actual values
+        # rather than just shoving all the raw HTML in
         main_table = soup.find('table', class_='CSSTableGenerator')
         chart_script = soup.find_all('script')[-1]
         chart = soup.find(id='chart_div')
