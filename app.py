@@ -6,7 +6,7 @@ import json
 
 app = Flask(__name__)
 
-CP_HOST = 'http://54.243.195.23'
+TEAM_PATH = 'http://54.243.195.23/team.php?team='
 with open('teams.json', 'r') as f:
     teams = json.load(f)
 
@@ -14,7 +14,7 @@ with open('teams.json', 'r') as f:
 def hello_world():
     content = []
     for number, name in teams.items():
-        page = requests.get(CP_HOST + '/team.php?team=' + number).content
+        page = requests.get(TEAM_PATH + number).content
         soup = BeautifulSoup(page, 'html.parser')
         main_table = soup.find('table', class_='CSSTableGenerator')
         table_data = soup.find_all('tr')[1]
@@ -33,4 +33,4 @@ def hello_world():
         #print(main_table)
         #print(chart_script)
         #print(chart)
-    return render_template('index.html', teams=content)
+    return render_template('index.html', team_path=TEAM_PATH, teams=content)

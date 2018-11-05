@@ -58,7 +58,7 @@ table#summary {
             <tbody>
                 {% for team in teams %}
                 <tr>
-                    <td>{{ team.number }}</td>
+                    <td><a href="{{ team_path }}{{ team.number }}">{{ team.number }}</a></td>
                     <td>{{ team.name }}</td>
                     <td>{{ team.play_time }}</td>
                     <td>{{ team.score }}</td>
