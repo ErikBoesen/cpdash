@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CyberPatriot Scores</title>
+        <!-- From original scoreoard, could change -->
+        <script src="//www.google.com/jsapi" type="text/javascript"></script>
+    </head>
+    <body>
+        {% for team in teams %}
+        <h2>{{ team.name }} - {{ team.number }}</h2>
+        {% endfor %}
+    </body>
+</html>
