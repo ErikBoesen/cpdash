@@ -79,5 +79,10 @@ table#summary {
         <!--{% for team in teams %}
         {{ team.main_table|safe }}
         {% endfor %}-->
+        <script>
+// We need to be careful about reloading. Each reload queries the scoreboard many times.
+// CyberPatriot ratelimits quite liberally, so we should only reload once in a while.
+setTimeout(60*1000, location.reload);
+        </script>
     </body>
 </html>
