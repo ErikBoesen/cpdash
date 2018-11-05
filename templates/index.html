@@ -11,8 +11,16 @@ td, th {
     padding: 5px;
 }
 .chart {
-    width: 80px;
-    height: 40px;
+    width: 100px;
+    height: 60px;
+}
+.chart text,
+.chart svg > g:nth-of-type(2) {
+    visibility: hidden;
+    display: none;
+}
+.chart path {
+    visibility: visible;
 }
         </style>
     </head>
