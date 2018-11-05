@@ -12,6 +12,7 @@ with open('teams.json', 'r') as f:
 
 @app.route('/')
 def hello_world():
+    # TODO: this is a horrible name
     content = []
     for number, name in teams.items():
         page = requests.get(TEAM_PATH + number).content
