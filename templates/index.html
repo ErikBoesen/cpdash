@@ -16,6 +16,8 @@ td, th {
         {% for team in teams %}
         <h2>{{ team.name }} - {{ team.number }} // {{ team.score }} in {{ team.play_time }}</h2>
         {{ team.main_table|safe }}
+        <!-- From scoreboard -->
+        <div class="chart" id="chart_div"></div>
         {% endfor %}
     </body>
 </html>
