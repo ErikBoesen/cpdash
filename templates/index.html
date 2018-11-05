@@ -5,10 +5,20 @@
         <!-- From original scoreoard, could change -->
         <script src="//www.google.com/jsapi" type="text/javascript"></script>
         <style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 td, th {
     border-collapse: collapse;
     border: solid 1px black;
     padding: 5px;
+}
+table#summary {
+    border-collapse: collapse;
+    border: dashed 2px #333;
+
 }
 .chart {
     width: 100px;
@@ -25,12 +35,32 @@ td, th {
         </style>
     </head>
     <body>
+        <table id="summary">
+            <thead>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Time</th>
+                <th>Score</th>
+                <th>Chart</th>
+            </thead>
+            <tbody>
+                {% for team in teams %}
+                <tr>
+                    <td>{{ team.number }}</td>
+                    <td>{{ team.name }}</td>
+                    <td>{{ team.play_time }}</td>
+                    <td>{{ team.score }}</td>
+                    <td>
+                        <!-- From scoreboard (modified for multiple charts) -->
+                        <div class="chart" id="chart_div_{{ team.number }}"></div>
+                    </td>
+                    {{ team.chart_script|safe }}
+                </tr>
+                {% endfor %}
+                </tbody>
+        </table>
         {% for team in teams %}
-        <h2>{{ team.name }} - {{ team.number }} // {{ team.score }} in {{ team.play_time }}</h2>
         {{ team.main_table|safe }}
-        <!-- From scoreboard partly -->
-        <div class="chart" id="chart_div_{{ team.number }}"></div>
-        {{ team.chart_script|safe }}
         {% endfor %}
     </body>
 </html>
