@@ -27,7 +27,7 @@ def hello_world():
             'play_time': play_time,
             'score': score,
             'main_table': main_table,
-            'chart_script': chart_script.replace('chart_div', 'chart_div_' + number),
+            'chart_script': str(chart_script).replace('chart_div', 'chart_div_' + number),
         })
         #print(google_script)
         #print(main_table)

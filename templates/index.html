@@ -18,7 +18,7 @@ td, th {
         {{ team.main_table|safe }}
         <!-- From scoreboard partly -->
         <div class="chart" id="chart_div_{{ team.number }}"></div>
-        {{ team.chart_script }}
+        {{ team.chart_script|safe }}
         {% endfor %}
     </body>
 </html>
