@@ -8,13 +8,12 @@ app = Flask(__name__)
 
 TEAM_PATH = 'http://54.243.195.23/team.php?team='
 with open('teams.json', 'r') as f:
-    teams = json.load(f)
+    targets = json.load(f)
 
 @app.route('/')
 def hello_world():
-    # TODO: this is a horrible name
-    content = []
-    for number, name in teams.items():
+    teams = []
+    for number, name in targets.items():
         page = requests.get(TEAM_PATH + number).content
         soup = BeautifulSoup(page, 'html.parser')
         main_table = soup.find('table', class_='CSSTableGenerator')
@@ -32,8 +31,5 @@ def hello_world():
             'main_table': main_table,
             'chart_script': str(chart_script).replace('chart_div', 'chart_div_' + number),
         })
-        #print(google_script)
-        #print(main_table)
-        #print(chart_script)
-        #print(chart)
-    return render_template('index.html', team_path=TEAM_PATH, teams=content)
+    teams = sorted(content, key=lambda team: team['score'])
+    return render_template('index.html', team_path=TEAM_PATH, teams=teams)
