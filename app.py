@@ -22,7 +22,7 @@ def hello_world():
         score = table_data.select('td')[8].text
         warnings = table_data.select('td')[7].text
         chart_script = soup.find_all('script')[-1]
-        content.append({
+        teams.append({
             'number': number,
             'name': name,
             'play_time': play_time,
@@ -31,5 +31,5 @@ def hello_world():
             'main_table': main_table,
             'chart_script': str(chart_script).replace('chart_div', 'chart_div_' + number),
         })
-    teams = sorted(content, key=lambda team: team['score'])
+    teams = sorted(teams, key=lambda team: team['score'], reverse=True)
     return render_template('index.html', team_path=TEAM_PATH, teams=teams)
