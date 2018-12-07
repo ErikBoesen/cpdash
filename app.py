@@ -33,3 +33,6 @@ def hello_world():
         })
     teams = sorted(teams, key=lambda team: team['score'], reverse=True)
     return render_template('index.html', team_path=TEAM_PATH, teams=teams)
+
+if __name__ == '__main__':
+    app.run()
