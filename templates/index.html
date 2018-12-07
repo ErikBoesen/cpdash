@@ -51,6 +51,7 @@ table#summary {
         </style>
     </head>
     <body>
+        {% if teams %}
         <table id="summary">
             <thead>
                 <th><!-- Warnings --></th>
@@ -77,6 +78,7 @@ table#summary {
                 {% endfor %}
                 </tbody>
         </table>
+        {% endif %}
         <!--{% for team in teams %}
         {{ team.main_table|safe }}
         {% endfor %}-->
