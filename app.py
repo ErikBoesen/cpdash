@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 import requests
 from bs4 import BeautifulSoup
@@ -8,12 +8,17 @@ app = Flask(__name__)
 
 TEAM_PATH = 'http://54.243.195.23/team.php?team='
 with open('teams.json', 'r') as f:
-    targets = json.load(f)
+    names = json.load(f)
 
 @app.route('/')
 def hello_world():
+    targets = request.args.get('teams')
+    if targets:
+        targets = targets.split(',')
+    else:
+        targets = []
     teams = []
-    for number, name in targets.items():
+    for number in targets:
         page = requests.get(TEAM_PATH + number).content
         soup = BeautifulSoup(page, 'html.parser')
         main_table = soup.find('table', class_='CSSTableGenerator')
@@ -24,7 +29,7 @@ def hello_world():
         chart_script = soup.find_all('script')[-1]
         teams.append({
             'number': number,
-            'name': name,
+            'name': names[number],
             'play_time': play_time,
             'score': score,
             'warnings': warnings,
@@ -32,6 +37,7 @@ def hello_world():
             'chart_script': str(chart_script).replace('chart_div', 'chart_div_' + number),
         })
     teams = sorted(teams, key=lambda team: team['score'], reverse=True)
+    print(teams)
     return render_template('index.html', team_path=TEAM_PATH, teams=teams)
 
 if __name__ == '__main__':
