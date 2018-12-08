@@ -78,6 +78,17 @@ table#summary {
                 {% endfor %}
                 </tbody>
         </table>
+        {% else %}
+        <p>Teams (separated by commas):</p>
+        <form>
+            <input type="text" name="teams">
+            <input type="submit">
+        </form>
+        <script>
+//document.getElementById('submit').onclick = function() {
+
+//}
+        </script>
         {% endif %}
         <!--{% for team in teams %}
         {{ team.main_table|safe }}
