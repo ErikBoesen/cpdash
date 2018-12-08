@@ -29,7 +29,7 @@ def hello_world():
         chart_script = soup.find_all('script')[-1]
         teams.append({
             'number': number,
-            'name': names[number],
+            'name': names.get(number),
             'play_time': play_time,
             'score': score,
             'warnings': warnings,
@@ -37,7 +37,6 @@ def hello_world():
             'chart_script': str(chart_script).replace('chart_div', 'chart_div_' + number),
         })
     teams = sorted(teams, key=lambda team: team['score'], reverse=True)
-    print(teams)
     return render_template('index.html', team_path=TEAM_PATH, teams=teams)
 
 if __name__ == '__main__':
