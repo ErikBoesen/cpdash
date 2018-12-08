@@ -13,6 +13,7 @@
 }
 body {
     font-size: 24px;
+    padding: 20px;
     font-family: 'Source Code Pro', monospace;
 }
 a {
@@ -78,25 +79,20 @@ table#summary {
                 {% endfor %}
                 </tbody>
         </table>
+        <script>
+// We need to be careful about reloading. Each reload queries the scoreboard many times.
+// CyberPatriot ratelimits quite liberally, so we should only reload once in a while.
+setTimeout(60*1000, location.reload);
+        </script>
         {% else %}
         <p>Teams (separated by commas):</p>
         <form>
             <input type="text" name="teams" value="11-0255,11-1078,11-1091,11-1095,11-1308">
             <input type="submit">
         </form>
-        <script>
-//document.getElementById('submit').onclick = function() {
-
-//}
-        </script>
         {% endif %}
         <!--{% for team in teams %}
         {{ team.main_table|safe }}
         {% endfor %}-->
-        <script>
-// We need to be careful about reloading. Each reload queries the scoreboard many times.
-// CyberPatriot ratelimits quite liberally, so we should only reload once in a while.
-setTimeout(60*1000, location.reload);
-        </script>
     </body>
 </html>
