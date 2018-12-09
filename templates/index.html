@@ -7,9 +7,9 @@
         <link rel="icon" href="static/favicon.ico">
         <style>
 @font-face {
-    font-family: 'The Led Display St';
+    font-family: 'Corporation Games';
     font-style: normal;
-    src: local('The Led Display St'), url(static/font/The_Led_Display_St.ttf) format('truetype');
+    src: local('Corporation Games'), url(static/font/Corporation_Games_Straight.otf) format('opentype');
 }
 * {
     box-sizing: border-box;
@@ -18,11 +18,11 @@
 }
 html, body { height: 100%; }
 body {
-    font-size: 60px;
+    font-size: 70px;
     padding: 20px;
-    font-family: 'The Led Display St', sans-serif;
-    background: #111;
-    color: #01DFFF;
+    font-family: 'Corporation Games', sans-serif;
+    background: #222;
+    color: #17caff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,6 +42,10 @@ td, th {
     border-collapse: collapse;
     padding: 5px 15px;
     text-align: left;
+    font-weight: 100;
+}
+thead {
+    display: none;
 }
 tbody tr {
 }
@@ -74,8 +78,8 @@ table#summary {
 .chart path {
     stroke-width: 2 !important;
 }
+.chart path[stroke="#dc3912"] { stroke: white; }
 /*.chart path[stroke="#3366cc"] { stroke: #37fffa; }
-.chart path[stroke="#dc3912"] { stroke: #37c7ff; }
 .chart path[stroke="#ff9900"] { stroke: #3762ff; }*/
 input {
     padding: 5px 4px;
