@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 
 import requests
+from urlparse import urlparse
 from bs4 import BeautifulSoup
 import json
 
@@ -14,7 +15,7 @@ with open('teams.json', 'r') as f:
 def hello_world():
     targets = request.args.get('teams')
     if targets:
-        targets = targets.split(',')
+        targets = urlparse(targets).split(',')
     else:
         targets = []
     teams = []
