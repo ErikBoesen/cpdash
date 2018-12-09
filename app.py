@@ -44,4 +44,4 @@ def hello_world():
     return render_template('index.html', team_path=TEAM_PATH, teams=teams)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
