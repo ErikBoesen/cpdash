@@ -50,7 +50,7 @@ table#summary {
 .chart {
     width: 150px;
     height: 100px;
-    transform: scale(1.5) translateY(10px);
+    transform: scale(1.5) translateY(-11px);
 }
 .chart text,
 .chart svg > g:nth-of-type(2) {
@@ -63,6 +63,12 @@ table#summary {
 .chart svg rect {
     fill: none;
 }
+.chart path {
+    stroke-width: 2 !important;
+}
+/*.chart path[stroke="#3366cc"] { stroke: #37fffa; }
+.chart path[stroke="#dc3912"] { stroke: #37c7ff; }
+.chart path[stroke="#ff9900"] { stroke: #3762ff; }*/
 input {
     padding: 5px 4px;
     background: none;
