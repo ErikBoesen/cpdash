@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>CyberPatriot Scores</title>
-        <!-- From original scoreoard, could change -->
+        <!-- From original scoreboard, could change -->
         <script src="//www.google.com/jsapi" type="text/javascript"></script>
         <link rel="icon" href="static/favicon.ico">
         <style>
@@ -12,15 +12,20 @@
     font-weight: 400;
     src: local('Righteous'), local('Righteous-Regular'), url(https://fonts.gstatic.com/s/righteous/v6/1cXxaUPXBpj2rGoU7C9WiHGF.woff2) format('woff2');
 }
+@font-face {
+    font-family: 'The Led Display St';
+    font-style: normal;
+    src: local('The Led Display St'), url(static/font/The_Led_Display_St.ttf) format('truetype');
+}
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 body {
-    font-size: 24px;
+    font-size: 60px;
     padding: 20px;
-    font-family: 'Righteous', sans-serif;
+    font-family: 'The Led Display St', 'Righteous', sans-serif;
 }
 a {
     color: inherit;
@@ -95,7 +100,7 @@ input {
         <script>
 // We need to be careful about reloading. Each reload queries the scoreboard many times.
 // CyberPatriot ratelimits quite liberally, so we should only reload once in a while.
-setTimeout(60*1000, location.reload);
+setTimeout(2*60*1000, location.reload);
         </script>
         {% else %}
         <p>Teams (separated by commas):</p>
