@@ -30,6 +30,9 @@ a {
 a:hover {
     border-bottom: solid 2px currentColor;
 }
+#logo {
+    width: 350px;
+}
 td, th {
     border-collapse: collapse;
     padding: 5px 15px;
@@ -38,7 +41,7 @@ td, th {
 tbody tr {
 }
 table#summary {
-    margin: 80px auto;
+    margin-top: 20px;
     border-collapse: collapse;
 }
 .warnings {
@@ -81,6 +84,7 @@ input {
     </head>
     <body>
         {% if teams %}
+        <img id="logo" src="https://www.lths.net/cms/lib/IL01904810/Centricity/Domain/1125/CyberPatriot-logo.png">
         <table id="summary">
             <thead>
                 <th><!-- Warnings --></th>
