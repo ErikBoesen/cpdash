@@ -8,7 +8,7 @@ import json
 app = Flask(__name__)
 
 TEAM_PATH = 'http://54.243.195.23/team.php?team='
-with open('teams.json', 'r') as f:
+with open('names.json', 'r') as f:
     names = json.load(f)
 
 @app.route('/')
