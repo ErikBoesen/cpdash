@@ -50,6 +50,7 @@ table#summary {
 .chart {
     width: 150px;
     height: 100px;
+    transform: scale(1.5);
 }
 .chart text,
 .chart svg > g:nth-of-type(2) {
@@ -58,6 +59,9 @@ table#summary {
 }
 .chart path {
     visibility: visible;
+}
+.chart svg rect {
+    fill: none;
 }
 input {
     padding: 5px 4px;
