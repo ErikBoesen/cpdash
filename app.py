@@ -26,7 +26,7 @@ def hello_world():
             main_table = soup.find('table', class_='CSSTableGenerator')
             table_data = soup.find_all('tr')[1]
             play_time = table_data.select('td')[6].text
-            score = table_data.select('td')[8].text
+            score = int(table_data.select('td')[8].text)
             warnings = table_data.select('td')[7].text
             chart_script = soup.find_all('script')[-1]
             teams.append({
